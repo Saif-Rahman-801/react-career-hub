@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { MdLocationOn } from "react-icons/md";
 import { AiOutlineDollar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const SingleJobs = ({ job }) => {
   const {
     logo,
+    id,
     job_title,
     company_name,
     remote_or_onsite,
@@ -11,10 +13,6 @@ const SingleJobs = ({ job }) => {
     job_type,
     salary,
     job_description,
-    job_responsibility,
-    educational_requirements,
-    experiences,
-    contact_information,
   } = job;
   return (
     <div className="card card-compact  bg-base-100 shadow-xl">
@@ -43,7 +41,7 @@ const SingleJobs = ({ job }) => {
           </p>
         </div>
         <div className="card-actions justify-start">
-          <button className="btn btn-primary">View details</button>
+          <button className="btn btn-primary"><Link to={`/singleJob/${id}`}>View Details</Link> </button>
         </div>
       </div>
     </div>

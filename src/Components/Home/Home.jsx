@@ -1,4 +1,3 @@
-import { useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Categories from "../Categories/Categories";
 import FeaturedJobs from "../FeaturedJobs/FeaturedJobs";
