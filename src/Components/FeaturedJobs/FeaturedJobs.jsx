@@ -3,6 +3,8 @@ import SingleJobs from "../SingleJobs/SingleJobs";
 
 const FeaturedJobs = () => {
   const [jobs, setJobs] = useState([]);
+  // not the best way to show the jobs
+  const [jobsLength, setJobsLength] = useState(4);
 
   useEffect(() => {
     fetch("jobs.json")
@@ -24,10 +26,16 @@ const FeaturedJobs = () => {
         need. Its your future
       </p>
       <div className="container mx-auto grid grid-cols-2 gap-6">
-        {jobs.map((job) => (
+        {jobs.slice(0, jobsLength).map((job) => (
           <SingleJobs key={job.id} job={job} />
         ))}
       </div>
+      <button
+        onClick={() => setJobsLength(jobs.length)}
+        className="btn btn-primary flex justify-center"
+      >
+        See all jobs
+      </button>
     </div>
   );
 };

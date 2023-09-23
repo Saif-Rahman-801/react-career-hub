@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { MdLocationOn } from "react-icons/md";
+import { AiOutlineDollar } from "react-icons/ai";
 const SingleJobs = ({ job }) => {
-  //   console.log(job);
   const {
     logo,
     job_title,
@@ -24,10 +25,23 @@ const SingleJobs = ({ job }) => {
         <h2 className="card-title">{job_title}</h2>
         <h3>{company_name} </h3>
         <div>
-          <button className="px-4 py-2 border rounded-sm mr-3 font-extrabold border-[#7E90FE]">{remote_or_onsite} </button>
-          <button className="px-4 py-2 border rounded-sm mr-3 font-extrabold border-[#7E90FE]">{job_type} </button>
+          <button className="px-4 py-2 border rounded-sm mr-3 font-extrabold border-[#7E90FE]">
+            {remote_or_onsite}
+          </button>
+          <button className="px-4 py-2 border rounded-sm mr-3 font-extrabold border-[#7E90FE]">
+            {job_type}
+          </button>
         </div>
         <p>{job_description} </p>
+        <div>
+          <p className="flex gap-2 items-center">
+            <MdLocationOn /> {location}
+          </p>
+          <p className="flex gap-2 items-center">
+            <AiOutlineDollar />
+            {salary}
+          </p>
+        </div>
         <div className="card-actions justify-start">
           <button className="btn btn-primary">View details</button>
         </div>
