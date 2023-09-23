@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { saveJobApplications } from "../../Utils/LStorage";
 
 const JobDetails = () => {
   const allJobs = useLoaderData();
@@ -25,6 +28,11 @@ const JobDetails = () => {
     contact_information,
   } = sJob;
 
+  const handleJob = () => {
+    saveJobApplications(idInt);
+    toast("Applied");
+  };
+
   return (
     <div>
       <h2>Job details of: {job_title} </h2>
@@ -34,9 +42,12 @@ const JobDetails = () => {
         </div>
         <div className="border">
           <h2 className="text-4xl">Side things</h2>
-          <button>Apply now </button>
+          <button className="btn btn-primary" onClick={handleJob}>
+            Apply now{" "}
+          </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
